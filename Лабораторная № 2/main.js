@@ -12,8 +12,8 @@ import {
 
 // Проверка 1. getUniqueTransactionTypes
 
-// console.log(getUniqueTransactionTypes(preparedArray));
-// console.log(getUniqueTransactionTypes(oneTransaction));
+console.log(getUniqueTransactionTypes(preparedArray));
+console.log(getUniqueTransactionTypes(oneTransaction));
 // console.log(getUniqueTransactionTypes());
 
 

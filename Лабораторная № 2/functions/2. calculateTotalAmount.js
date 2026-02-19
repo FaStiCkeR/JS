@@ -1,4 +1,4 @@
-/* 2! calculateTotalAmount(transactions) – Вычисляет сумму всех транзакций.
+/* 2. calculateTotalAmount(transactions) – Вычисляет сумму всех транзакций.
 
 * @params {Array}
 * @result {Number}

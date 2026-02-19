@@ -1,5 +1,4 @@
-/*
-7. calculateAverageTransactionAmount(transactions) – Возвращает среднее значение транзакций.
+/* 7. calculateAverageTransactionAmount(transactions) – Возвращает среднее значение транзакций.
 * @params {Array}
 * @result {Number?}
 */

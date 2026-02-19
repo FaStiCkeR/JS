@@ -1,5 +1,4 @@
-/*
-11. findMostDebitTransactionMonth(transactions) – Возвращает месяц, в котором было больше дебетовых транзакций.
+/* 11. findMostDebitTransactionMonth(transactions) – Возвращает месяц, в котором было больше дебетовых транзакций.
 * @params {Array}
 * @result {Date}
 */

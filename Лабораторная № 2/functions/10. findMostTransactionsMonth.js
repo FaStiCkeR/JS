@@ -1,5 +1,4 @@
-/*
-10. findMostTransactionsMonth(transactions) – Возвращает месяц, в котором было больше всего транзакций.
+/* 10. findMostTransactionsMonth(transactions) – Возвращает месяц, в котором было больше всего транзакций.
 * @params {Array}
 * @result {Date.month}
 */

@@ -1097,4 +1097,3 @@ const oneTransaction = [{
 }];
 
 export { preparedArray, oneTransaction };
-
