@@ -1,0 +1,15 @@
+1. getUniqueTransactionTypes +
+2. calculateTotalAmount +
+3. calculateTotalAmountByDate +
+4. getTransactionByType +
+5. getTransactionsInDateRange +
+6. getTransactionsByMerchant +
+7. calculateAverageTransactionAmount +
+8. getTransactionsByAmountRange +
+9. calculateTotalDebitAmount +
+10. findMostTransactionsMonth +
+11. findMostDebitTransactionMonth +
+12. mostTransactionTypes +
+13. getTransactionsBeforeDate +
+14. findTransactionById +
+15. mapTransactionDescriptions +
