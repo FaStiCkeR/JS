@@ -1,4 +1,4 @@
-/* 12. mostTransactionTypes(transactions)
+/** 12. mostTransactionTypes(transactions)
 * Возвращает каких транзакций больше всего.
 * Возвращает debit, если дебетовых.
 * Возвращает credit, если кредитовых.

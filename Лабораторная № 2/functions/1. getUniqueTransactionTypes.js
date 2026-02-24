@@ -1,4 +1,4 @@
-/* 1. getUniqueTransactionTypes(transactions)
+/** 1. getUniqueTransactionTypes(transactions)
 * Возвращает массив уникальных типов транзакций.
 * Используйте Set() для выполнения задания.
 
@@ -16,11 +16,6 @@ function getUniqueTransactionTypes(transactions) {
     }));
 
     return [...typeSet];
-    // const typesSet = new Set();
-    // transactions.filter(transaction => {
-    //     typesSet.add(transaction.transaction_type);
-    // });
-    // return [...typesSet];
 }
 
 export { getUniqueTransactionTypes };

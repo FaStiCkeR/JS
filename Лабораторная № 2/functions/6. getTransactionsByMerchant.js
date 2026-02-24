@@ -1,4 +1,4 @@
-/* 6. getTransactionsByMerchant(transactions, merchantName) – Возвращает массив транзакций, совершенных с указанным merchantName
+/** 6. getTransactionsByMerchant(transactions, merchantName) – Возвращает массив транзакций, совершенных с указанным merchantName
 * @params {Array, String}
 * @result {Array}
 */

@@ -1,4 +1,4 @@
-/* 4. getTransactionByType(transactions, type) - Возвращает транзакции указанного типа (debit или credit).
+/** 4. getTransactionByType(transactions, type) - Возвращает транзакции указанного типа (debit или credit).
 * @params {Array, String}
 * @result {Array}
 */

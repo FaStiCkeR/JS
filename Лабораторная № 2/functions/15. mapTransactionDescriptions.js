@@ -1,4 +1,4 @@
-/*
+/**
 15. mapTransactionDescriptions(transactions) – Возвращает новый массив,
     содержащий только описания транзакций.
 * @params {Array}

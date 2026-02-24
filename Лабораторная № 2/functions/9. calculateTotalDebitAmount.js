@@ -1,4 +1,4 @@
-/*
+/**
 9. calculateTotalDebitAmount(transactions) – Вычисляет общую сумму дебетовых транзакций.
 * @params {Array}
 * @result {Number}

@@ -1,4 +1,4 @@
-/*
+/**
 8. getTransactionsByAmountRange(transactions, minAmount, maxAmount) – Возвращает массив транзакций с суммой в заданном диапазоне от minAmount до maxAmount.
 * @params {Array, Number | String, Number | String}
 * @result {Array}

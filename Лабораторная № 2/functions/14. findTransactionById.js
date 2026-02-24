@@ -1,4 +1,4 @@
-/*
+/**
 14. findTransactionById(transactions, id) – Возвращает транзакцию по ее уникальному идентификатору (id).
 * @params {Array, Number}
 * @result {Object}

@@ -1,5 +1,5 @@
-/* 5. Возвращает массив транзакций, проведенных в указанном диапазоне дат от startDate до endDate.
-* * @params {Array, String, String}
+/** 5. Возвращает массив транзакций, проведенных в указанном диапазоне дат от startDate до endDate.
+* @params {Array, String, String}
 * @result {Array}
 */
 function getTransactionsInDateRange(transactions, startDate, endDate) {

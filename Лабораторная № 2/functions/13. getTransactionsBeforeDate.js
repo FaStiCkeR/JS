@@ -1,4 +1,4 @@
-/* 13. getTransactionsBeforeDate(transactions, date) – Возвращает массив транзакций, совершенных до указанной даты.
+/** 13. getTransactionsBeforeDate(transactions, date) – Возвращает массив транзакций, совершенных до указанной даты.
 * @params {Array, String}
 * @result {Array}
 */
