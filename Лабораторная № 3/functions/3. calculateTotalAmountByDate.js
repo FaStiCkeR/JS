@@ -1,4 +1,4 @@
-/* 3. calculateTotalAmountByDate(transactions, year, month, day) [extra]
+/** 3. calculateTotalAmountByDate(transactions, year, month, day) [extra]
 
 * Вычисляет общую сумму транзакций за указанный год, месяц и день.
 * Параметры year, month и day являются необязательными.

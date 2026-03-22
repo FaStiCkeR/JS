@@ -16,7 +16,7 @@ function findMostDebitTransactionMonth(transactions) {
             months[month] = (months[month] || 0) + 1;
         })
 
-    let monthWithMaxDebit = 'null';
+    let monthWithMaxDebit = null;
     let maxDebitInMonth = 0;
 
     for (const [month, t] of Object.entries(months)) {

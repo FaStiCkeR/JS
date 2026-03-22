@@ -18,7 +18,6 @@ class Item {
     getInfo() {
         return this.name + " | " + this.weight + " | " + this.rarity;
     }
-
     /**
      * Изменяет вес предмета
      * @param {number} newWeight - новый вес
@@ -100,9 +99,8 @@ const branch = new Weapon("Branch", 1, "legendary", 100, 20);
 // console.log(katana.getInfo());
 
 // Шаг 4.
-
 // ?. оператор.
-// console.log(katana.source.town)
+// console.log(katana.source?.town)
 // console.log(katana?.source?.town);
 // console.log(katana.source)
 
