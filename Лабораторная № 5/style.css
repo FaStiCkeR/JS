@@ -1,0 +1,275 @@
+:root {
+    --accent-color: greenyellow;
+    --text-dark: #212121;
+    --white: #ffffff;
+    --overlay-bg: rgba(0, 0, 0, 0.45);
+    --form-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    --input-border: #e2e8f0;
+    --input-focus: #6366f1;
+    --label-color: #64748b;
+    --input-focus-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    --transition-fast: all 0.3s ease;
+    --transition-slow: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-button: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--overlay-bg);
+    z-index: 9;
+}
+
+/* Wrapper */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Transaction table */
+.transactionTable {
+    border: 1px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.transactionTable tr td {
+    text-align: center;
+}
+
+/* Add transaction button */
+.addTransactionModal {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid transparent;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-button);
+}
+
+.addTransactionModal svg {
+    position: absolute;
+    width: 24px;
+    fill: var(--accent-color);
+    z-index: 9;
+    transition: var(--transition-slow);
+}
+
+.addTransactionModal .arr-1 {
+    right: 16px;
+}
+
+.addTransactionModal .arr-2 {
+    left: -25%;
+}
+
+.addTransactionModal .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: var(--transition-slow);
+}
+
+.addTransactionModal .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: var(--transition-slow);
+}
+
+.addTransactionModal:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: var(--text-dark);
+    border-radius: 12px;
+}
+
+.addTransactionModal:hover .arr-1 {
+    right: -25%;
+}
+
+.addTransactionModal:hover .arr-2 {
+    left: 16px;
+}
+
+.addTransactionModal:hover .text {
+    transform: translateX(12px);
+}
+
+.addTransactionModal:hover svg {
+    fill: var(--text-dark);
+}
+
+.addTransactionModal:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px var(--accent-color);
+}
+
+.addTransactionModal:hover .circle {
+    width: 280px;
+    height: 220px;
+    opacity: 1;
+}
+
+.formAddTransaction .addTransactionModal {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    margin-top: 8px;
+    border-radius: 14px;
+    background: var(--accent-color);
+    color: var(--text-dark);
+    box-shadow: none;
+}
+
+.formAddTransaction .addTransactionModal .text {
+    transform: none;
+}
+
+.formAddTransaction .addTransactionModal svg,
+.formAddTransaction .addTransactionModal .circle {
+    display: none;
+}
+
+.formAddTransaction .addTransactionModal:hover {
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(173, 255, 47, 0.45);
+}
+
+.profit {
+    background: rgba(0, 128, 0, 0.3);
+}
+
+.deficit {
+    background: rgba(255, 0, 0, 0.3);
+}
+
+/* Add transaction form */
+.formAddTransaction {
+    display: none;
+    max-width: 420px;
+    padding: 50px 30px 40px 30px;
+    background: var(--white);
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    box-shadow: var(--form-shadow);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    position: absolute;
+    margin: 20vh auto;
+    z-index: 10;
+}
+
+.closeTransactionForm {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.formAddTransaction input {
+    width: 100%;
+    padding: 18px 20px 8px 20px;
+    font-size: 17px;
+    border: 2px solid var(--input-border);
+    border-radius: 14px;
+    background: var(--white);
+    transition: var(--transition-fast);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.formAddTransaction input:focus {
+    border-color: var(--input-focus);
+    box-shadow: var(--input-focus-shadow);
+}
+
+.formAddTransaction label {
+    position: absolute;
+    left: 20px;
+    top: 18px;
+    font-size: 16px;
+    color: var(--label-color);
+    pointer-events: none;
+    transition: var(--transition-fast);
+    background: transparent;
+}
+
+.formAddTransaction input:focus + label,
+.formAddTransaction input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 16px;
+    font-size: 13px;
+    color: var(--input-focus);
+    background: var(--white);
+    padding: 0 8px;
+}
+
+.category::first-letter {
+    text-transform: capitalize;
+}
+
+.description::first-letter {
+    text-transform: capitalize;
+}
+
+.formAddTransaction select {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 17px;
+    border: 2px solid var(--input-border);
+    border-radius: 14px;
+    background: var(--white);
+    transition: var(--transition-fast);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+/* Shared buttons */
+.cancelButtons {
+    padding: 5px 7px;
+    border: 0;
+    border-radius: 100%;
+    background: var(--white);
+    cursor: pointer;
+}
+
+#descriptionHeader {
+    text-align: center;
+}
+
+#descriptionSection {
+    font-size: 20px;
+    margin-left: 4vw;
+}
+
+.wrap {
+    z-index: 11;
+    position: absolute;
+    margin: 20vh auto;
+}

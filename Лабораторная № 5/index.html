@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="wrapper">
+    <div>
+        <h1 id="totalSummary">Общая сумма: </h1>
+    </div>
+    <table border="1" cellpadding="15" cellspacing="0" class="transactionTable" id="transactionTable">
+        <tr>
+            <th>Дата и время</th>
+            <th>Категория транзакции</th>
+            <th>Краткое описание транзакции</th>
+            <th>Действие (Кнопка удаления транзакции)</th>
+        </tr>
+    </table>
+    <!-- From Uiverse.io by gharsh11032000 -->
+    <button class="addTransactionModal" type="button" id="addTransactionModal">
+        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+            <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+        </svg>
+        <span class="text">Добавить транзакцию</span>
+        <span class="circle"></span>
+        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+            <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+        </svg>
+    </button>
+    <form action="" class="formAddTransaction" id="formAddTransaction">
+        <button type="button" class="closeTransactionForm cancelButtons" id="closeTransactionForm">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="15" fill="#f1f1f1" stroke="#ddd" stroke-width="1"/>
+                <path d="M21 11L11 21M11 11L21 21"
+                      stroke="#333"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <div class="input-group">
+            <input type="datetime-local" id="date" name="date" placeholder=" " required>
+            <label for="date">Дата транзакции</label>
+        </div>
+
+        <div class="input-group">
+            <input type="number" id="amount" name="amount" placeholder=" " required>
+            <label for="amount">Сумма транзакции</label>
+        </div>
+
+        <div class="input-group">
+                <select name="category" id="category" required>
+                </select>
+            <label for="category"></label>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="description" name="description" placeholder=" " required
+                   pattern="^.{3,120}$"
+                   title="Описание: от 3 до 120 символов">
+            <label for="description">Описание транзакции</label>
+        </div>
+
+       <div class="button-group">
+           <button class="addTransactionModal" type="button" id="submitTransactionButton">
+               Добавить транзакцию
+           </button>
+           <button class="addTransactionModal" type="button" id="addCategoryTransactionButton">
+               Добавить добавить категорию
+           </button>
+       </div>
+    </form>
+</div>
+<div>
+    <h2 id="descriptionHeader">Выберите транзакцию для получения описания</h2>
+    <p id="descriptionSection">
+
+    </p>
+</div>
+</body>
+<script src="src/index.js" type="module"></script>
+</html>
