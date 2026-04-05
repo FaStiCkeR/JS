@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer components {
+    .tableRow {
+        @apply flex flex-row gap-x-2 justify-center transform-3d;
+    }
+
+    .tableCell {
+        @apply w-[10vw] h-[10vw] flex items-center justify-center border-2 border-gray-400/30 shadow-xs;
+    }
+
+    .letterRow {
+        @apply flex flex-row gap-x-1;
+    }
+
+    .letter {
+        @apply flex items-center justify-center border-2 bg-amber-500/30 shadow-xs p-1;
+    }
+
+    #keyboard {
+        @apply flex flex-col gap-1 justify-center items-center;
+    }
+
+    #board {
+        @apply flex flex-col gap-y-2 pb-8;
+    }
+
+}
