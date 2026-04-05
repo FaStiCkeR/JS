@@ -1,5 +1,5 @@
-import { generateTransactionId} from "./utils.js";
-import { renderTotalSummary} from "./ui.js";
+import {generateTransactionId} from "./utils.js";
+import {renderTotalSummary} from "./ui.js";
 
 const transactions = [
     {
@@ -70,4 +70,4 @@ function deleteTransaction(id) {
     }
 }
 
-export { transactions, addTransaction, deleteTransaction };
+export {transactions, addTransaction, deleteTransaction};

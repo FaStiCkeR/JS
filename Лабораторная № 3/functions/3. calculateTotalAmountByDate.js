@@ -1,13 +1,13 @@
 /** 3. calculateTotalAmountByDate(transactions, year, month, day) [extra]
 
-* Вычисляет общую сумму транзакций за указанный год, месяц и день.
-* Параметры year, month и day являются необязательными.
-* В случае отсутствия одного из параметров, метод производит расчет по остальным.
+ * Вычисляет общую сумму транзакций за указанный год, месяц и день.
+ * Параметры year, month и day являются необязательными.
+ * В случае отсутствия одного из параметров, метод производит расчет по остальным.
 
-* @params {Array, Number | null, Number | null, Number | null}
-* @result {Object}
-* Год находится от 0 до 4 индекса, месяц от 5 до 7 индекса, день от 8 до 10 индекса. Пример 2019-04-13
-*/
+ * @params {Array, Number | null, Number | null, Number | null}
+ * @result {Object}
+ * Год находится от 0 до 4 индекса, месяц от 5 до 7 индекса, день от 8 до 10 индекса. Пример 2019-04-13
+ */
 function calculateTotalAmountByDate(transactions, year = null, month = null, day = null) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -40,4 +40,4 @@ function calculateTotalAmountByDate(transactions, year = null, month = null, day
     }, 0);
 }
 
-export { calculateTotalAmountByDate };
+export {calculateTotalAmountByDate};

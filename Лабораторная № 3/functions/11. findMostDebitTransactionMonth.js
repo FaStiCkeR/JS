@@ -1,7 +1,7 @@
 /** 11. findMostDebitTransactionMonth(transactions) – Возвращает месяц, в котором было больше дебетовых транзакций.
-* @params {Array}
-* @result {Date}
-*/
+ * @params {Array}
+ * @result {Date}
+ */
 function findMostDebitTransactionMonth(transactions) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -30,4 +30,4 @@ function findMostDebitTransactionMonth(transactions) {
 
 }
 
-export { findMostDebitTransactionMonth };
+export {findMostDebitTransactionMonth};

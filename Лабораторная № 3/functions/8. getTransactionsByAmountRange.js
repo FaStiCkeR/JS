@@ -1,8 +1,8 @@
 /**
-8. getTransactionsByAmountRange(transactions, minAmount, maxAmount) – Возвращает массив транзакций с суммой в заданном диапазоне от minAmount до maxAmount.
-* @params {Array, Number | String, Number | String}
-* @result {Array}
-*/
+ 8. getTransactionsByAmountRange(transactions, minAmount, maxAmount) – Возвращает массив транзакций с суммой в заданном диапазоне от minAmount до maxAmount.
+ * @params {Array, Number | String, Number | String}
+ * @result {Array}
+ */
 function getTransactionsByAmountRange(transactions, minAmount, maxAmount) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -13,4 +13,4 @@ function getTransactionsByAmountRange(transactions, minAmount, maxAmount) {
     });
 }
 
-export { getTransactionsByAmountRange };
+export {getTransactionsByAmountRange};

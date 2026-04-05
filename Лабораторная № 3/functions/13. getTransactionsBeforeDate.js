@@ -1,7 +1,7 @@
 /** 13. getTransactionsBeforeDate(transactions, date) – Возвращает массив транзакций, совершенных до указанной даты.
-* @params {Array, String}
-* @result {Array}
-*/
+ * @params {Array, String}
+ * @result {Array}
+ */
 function getTransactionsBeforeDate(transactions, date) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -19,4 +19,4 @@ function getTransactionsBeforeDate(transactions, date) {
     return result.length > 0 ? result : "No transactions found.";
 }
 
-export { getTransactionsBeforeDate };
+export {getTransactionsBeforeDate};

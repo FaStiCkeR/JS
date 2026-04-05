@@ -1096,4 +1096,4 @@ const oneTransaction = [{
     card_type: "MasterCard",
 }];
 
-export { preparedArray, oneTransaction };
+export {preparedArray, oneTransaction};

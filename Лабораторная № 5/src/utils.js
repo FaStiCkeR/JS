@@ -75,4 +75,4 @@ function addNewCategory(categories) {
 }
 
 
-export { generateTransactionId, formatTransactionDate, calculateTotal, getFormData, dateForDateInput, addNewCategory };
+export {generateTransactionId, formatTransactionDate, calculateTotal, getFormData, dateForDateInput, addNewCategory};

@@ -1,7 +1,7 @@
 /** 10. findMostTransactionsMonth(transactions) – Возвращает месяц, в котором было больше всего транзакций.
-* @params {Array}
-* @result {Date.month}
-*/
+ * @params {Array}
+ * @result {Date.month}
+ */
 function findMostTransactionsMonth(transactions) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -27,4 +27,4 @@ function findMostTransactionsMonth(transactions) {
     return result[2];
 }
 
-export { findMostTransactionsMonth };
+export {findMostTransactionsMonth};

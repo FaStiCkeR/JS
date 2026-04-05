@@ -1,14 +1,6 @@
 // Импорт массива объектов
 import {oneTransaction, preparedArray} from "./array.js";
-import {
-    getUniqueTransactionTypes,
-    calculateTotalAmount,
-    calculateTotalAmountByDate,
-    getTransactionByType,
-    getTransactionsInDateRange, getTransactionsByMerchant, calculateAverageTransactionAmount,
-    getTransactionsByAmountRange, calculateTotalDebitAmount, findMostDebitTransactionMonth, findMostTransactionsMonth,
-    mostTransactionTypes, getTransactionsBeforeDate, findTransactionById, mapTransactionDescriptions,
-} from "./functions.js"
+import {getUniqueTransactionTypes, mapTransactionDescriptions,} from "./functions.js"
 
 // Проверка 1. getUniqueTransactionTypes
 

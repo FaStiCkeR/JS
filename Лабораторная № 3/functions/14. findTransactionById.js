@@ -1,8 +1,8 @@
 /**
-14. findTransactionById(transactions, id) – Возвращает транзакцию по ее уникальному идентификатору (id).
-* @params {Array, Number}
-* @result {Object}
-*/
+ 14. findTransactionById(transactions, id) – Возвращает транзакцию по ее уникальному идентификатору (id).
+ * @params {Array, Number}
+ * @result {Object}
+ */
 function findTransactionById(transactions, id) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -16,4 +16,4 @@ function findTransactionById(transactions, id) {
     return trans;
 }
 
-export { findTransactionById };
+export {findTransactionById};

@@ -1,9 +1,9 @@
 // Шаг 1.
 /**
-* @param {name} название предмета
-* @param {weight} вес предмета
-* @param {rarity} редкость предмета (common, uncommon, rare, legendary)
-*/
+ * @param {name} название предмета
+ * @param {weight} вес предмета
+ * @param {rarity} редкость предмета (common, uncommon, rare, legendary)
+ */
 class Item {
     constructor(name, weight, rarity) {
         this.name = name;
@@ -18,6 +18,7 @@ class Item {
     getInfo() {
         return this.name + " | " + this.weight + " | " + this.rarity;
     }
+
     /**
      * Изменяет вес предмета
      * @param {number} newWeight - новый вес
@@ -32,13 +33,13 @@ class Item {
 // sword.setWeight(4.0);
 
 // Шаг 2.
-    /**
-     * @param {name} название предмета
-     * @param {weight} вес предмета
-     * @param {rarity} редкость предмета (common, uncommon, rare, legendary)
-     * @param {damage} урон оружия
-     * @param {durability} прочность (от 0 до 100).
-     */
+/**
+ * @param {name} название предмета
+ * @param {weight} вес предмета
+ * @param {rarity} редкость предмета (common, uncommon, rare, legendary)
+ * @param {damage} урон оружия
+ * @param {durability} прочность (от 0 до 100).
+ */
 class Weapon extends Item {
     constructor(name, weight, rarity, damage, durability) {
         super(name, weight, rarity);

@@ -1,8 +1,8 @@
 /**
-9. calculateTotalDebitAmount(transactions) – Вычисляет общую сумму дебетовых транзакций.
-* @params {Array}
-* @result {Number}
-*/
+ 9. calculateTotalDebitAmount(transactions) – Вычисляет общую сумму дебетовых транзакций.
+ * @params {Array}
+ * @result {Number}
+ */
 function calculateTotalDebitAmount(transactions) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -13,4 +13,4 @@ function calculateTotalDebitAmount(transactions) {
         .reduce((acc, transaction) => acc + transaction.transaction_amount, 0)
 }
 
-export { calculateTotalDebitAmount };
+export {calculateTotalDebitAmount};

@@ -12,4 +12,4 @@ function isInAscendingOrder(arr) {
     return true;
 }
 
-console.log(isInAscendingOrder([2,4, 3, 4]))
+console.log(isInAscendingOrder([2, 4, 3, 4]))

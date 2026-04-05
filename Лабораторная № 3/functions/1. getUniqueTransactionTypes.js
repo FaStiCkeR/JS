@@ -1,11 +1,11 @@
 /** 1. getUniqueTransactionTypes(transactions)
-* Возвращает массив уникальных типов транзакций.
-* Используйте Set() для выполнения задания.
+ * Возвращает массив уникальных типов транзакций.
+ * Используйте Set() для выполнения задания.
 
-* @params {Array}
-* @result {Array}
+ * @params {Array}
+ * @result {Array}
 
-*/
+ */
 function getUniqueTransactionTypes(transactions) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -18,4 +18,4 @@ function getUniqueTransactionTypes(transactions) {
     return [...typeSet];
 }
 
-export { getUniqueTransactionTypes };
+export {getUniqueTransactionTypes};

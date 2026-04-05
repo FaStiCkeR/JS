@@ -1,10 +1,10 @@
 /** 2. calculateTotalAmount(transactions) – Вычисляет сумму всех транзакций.
 
-* @params {Array}
-* @result {Number}
+ * @params {Array}
+ * @result {Number}
 
-* Подсчет суммы всех транзакций transaction_amount
-*/
+ * Подсчет суммы всех транзакций transaction_amount
+ */
 function calculateTotalAmount(transactions) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -15,4 +15,4 @@ function calculateTotalAmount(transactions) {
     }, 0)
 }
 
-export { calculateTotalAmount };
+export {calculateTotalAmount};

@@ -250,6 +250,7 @@
     flex-direction: column;
     gap: 6px;
 }
+
 /* Shared buttons */
 .cancelButtons {
     padding: 5px 7px;

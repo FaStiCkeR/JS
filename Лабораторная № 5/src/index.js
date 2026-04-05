@@ -1,14 +1,6 @@
-import {
-    renderTable,
-    renderForm,
-    unRenderForm,
-    renderTableRow,
-    renderTotalSummary,
-    renderCategorySelect
-} from "./ui.js";
-import { transactions, addTransaction, deleteTransaction } from "./transactions.js";
+import {renderCategorySelect, renderForm, renderTable, renderTableRow, renderTotalSummary, unRenderForm} from "./ui.js";
+import {addTransaction, deleteTransaction, transactions} from "./transactions.js";
 import {addNewCategory, getFormData} from "./utils.js";
-
 
 
 // Полная загрузка DOM

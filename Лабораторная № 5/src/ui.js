@@ -1,5 +1,4 @@
-import {dateForDateInput, formatTransactionDate} from "./utils.js";
-import {calculateTotal} from "./utils.js";
+import {calculateTotal, dateForDateInput, formatTransactionDate} from "./utils.js";
 
 /**
  * Рендер табличной строки
@@ -88,4 +87,4 @@ function renderCategorySelect(categories) {
     });
 }
 
-export { renderTableRow, renderTable, renderForm, unRenderForm, renderTotalSummary, renderCategorySelect };
+export {renderTableRow, renderTable, renderForm, unRenderForm, renderTotalSummary, renderCategorySelect};

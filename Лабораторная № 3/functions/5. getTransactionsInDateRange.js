@@ -1,7 +1,7 @@
 /** 5. Возвращает массив транзакций, проведенных в указанном диапазоне дат от startDate до endDate.
-* @params {Array, String, String}
-* @result {Array}
-*/
+ * @params {Array, String, String}
+ * @result {Array}
+ */
 function getTransactionsInDateRange(transactions, startDate, endDate) {
     if (!transactions || transactions.length === 0) {
         return "No transactions found.";
@@ -16,4 +16,4 @@ function getTransactionsInDateRange(transactions, startDate, endDate) {
     });
 }
 
-export { getTransactionsInDateRange };
+export {getTransactionsInDateRange};
