@@ -1,28 +1,444 @@
 @import "tailwindcss";
 
-@layer components {
-    .tableRow {
-        @apply flex flex-row gap-x-2 justify-center transform-3d;
-    }
+/* Базовые стили */
+body {
+    @apply bg-white min-h-screen flex flex-col items-center;
+    transition: background-color 0.2s ease;
+}
 
+.dark body {
+    @apply bg-gray-900;
+}
+
+/* Шапка */
+header {
+    @apply w-full max-w-lg mx-auto flex justify-between items-center border-b border-gray-200 pb-4 mb-8;
+}
+
+.dark header {
+    @apply border-gray-700;
+}
+
+header h1 {
+    @apply text-2xl font-bold tracking-wide text-gray-800;
+}
+
+.dark header h1 {
+    @apply text-white;
+}
+
+header button {
+    @apply p-2 rounded-full hover:bg-gray-100 transition-colors;
+    cursor: pointer;
+}
+
+.dark header button {
+    @apply hover:bg-gray-800;
+}
+
+.dark header button svg path {
+    @apply fill-[#f3f4f6];
+}
+
+/* Анимации для SVG */
+@keyframes rotateIcon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scaleIcon {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+header svg {
+    @apply w-5 h-5 text-gray-700;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center;
+}
+
+.dark header svg {
+    @apply text-white;
+}
+
+/* Анимация для первой кнопки (луна) */
+header button:first-child:hover svg {
+    animation: rotateIcon 0.6s ease-in-out;
+}
+
+header button:first-child:active svg {
+    animation: scaleIcon 0.3s ease-out;
+}
+
+/* Анимация для второй кнопки (таблица) */
+header button:last-child:hover svg {
+    animation: scaleIcon 0.4s ease-out;
+}
+
+header button:last-child:active svg {
+    animation: shimmer 0.3s ease-in-out;
+}
+
+/* Контейнер игры */
+main {
+    @apply flex flex-col items-center justify-center w-full max-w-lg mx-auto;
+}
+
+/* Доска */
+#board {
+    @apply flex flex-col items-center gap-2 mb-8;
+}
+
+.tableRow {
+    @apply flex justify-center gap-2;
+}
+
+.tableCell {
+    @apply w-14 h-14 flex items-center justify-center text-2xl font-bold border-2 border-gray-300 rounded-md;
+    background-color: white;
+    color: #1f2937;
+    transition: all 0.2s ease;
+}
+
+.dark .tableCell {
+    @apply border-gray-600;
+    background-color: #1f2937;
+    color: white;
+}
+
+/* Цвета состояний */
+.tableCell.correct {
+    @apply bg-green-500 text-white border-green-600;
+}
+
+.tableCell.present {
+    @apply bg-yellow-500 text-white border-yellow-600;
+}
+
+.tableCell.absent {
+    @apply bg-gray-500 text-white border-gray-600;
+}
+
+/* Клавиатура */
+#keyboard {
+    @apply w-full flex flex-col items-center gap-2 mt-4;
+}
+
+.letterRow {
+    @apply flex justify-center gap-1 sm:gap-2;
+}
+
+.letter {
+    @apply w-10 h-12 sm:w-12 sm:h-14 text-sm sm:text-base font-bold rounded-md transition-colors;
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+.letter:hover {
+    background-color: #d1d5db;
+}
+
+.dark .letter {
+    background-color: #374151;
+    color: #f3f4f6;
+}
+
+.dark .letter:hover {
+    background-color: #4b5563;
+}
+
+.letter.correct {
+    background-color: #22c55e !important;
+    color: white !important;
+}
+
+.letter.present {
+    background-color: #eab308 !important;
+    color: white !important;
+}
+
+.letter.absent {
+    background-color: #6b7280 !important;
+    color: white !important;
+}
+
+/* Спецкнопки */
+.letter:first-child,
+.letter:last-child {
+    @apply px-3 text-xs sm:text-sm;
+}
+
+/* Сообщения */
+.game-message {
+    @apply mt-4 text-center text-lg font-semibold text-gray-800;
+}
+
+.dark .game-message {
+    @apply text-gray-200;
+}
+
+.text-red-500 {
+    color: #ef4444;
+}
+
+.text-green-500 {
+    color: #22c55e;
+}
+
+/* Кнопка новой игры */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.new-game-btn {
+    @apply mt-6 px-6 py-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 transition-all;
+}
+
+.new-game-btn:hover {
+    animation: pulse 0.6s ease-in-out infinite;
+}
+
+.new-game-btn:active {
+    transform: scale(0.95);
+}
+
+.dark .new-game-btn {
+    @apply bg-blue-600 hover:bg-blue-700;
+}
+
+/* Модальное окно со статистикой */
+.stats-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.stats-modal {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    animation: slideUp 0.3s ease;
+}
+
+.dark .stats-modal {
+    background-color: #1f2937;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.stats-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.dark .stats-modal-header {
+    border-bottom-color: #374151;
+}
+
+.stats-modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.dark .stats-modal-header h2 {
+    color: white;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+.dark .close-btn:hover {
+    background-color: #374151;
+    color: white;
+}
+
+.stats-modal-body {
+    padding: 20px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dark .stat-item {
+    border-bottom-color: #374151;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.dark .stat-label {
+    color: #9ca3af;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f2937;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark .stat-value {
+    color: white;
+}
+
+/* Адаптив */
+@media (max-width: 640px) {
     .tableCell {
-        @apply w-[10vw] h-[10vw] flex items-center justify-center border-2 border-gray-400/30 shadow-xs;
-    }
-
-    .letterRow {
-        @apply flex flex-row gap-x-1;
+        @apply w-12 h-12 text-xl;
     }
 
     .letter {
-        @apply flex items-center justify-center border-2 bg-amber-500/30 shadow-xs p-1;
+        @apply w-8 h-10 text-xs;
+    }
+}
+
+/* Адаптив для очень маленьких экранов */
+@media (max-width: 440px) {
+    header {
+        @apply pb-2 mb-4;
     }
 
-    #keyboard {
-        @apply flex flex-col gap-1 justify-center items-center;
+    header h1 {
+        @apply text-xl;
     }
 
     #board {
-        @apply flex flex-col gap-y-2 pb-8;
+        @apply mb-4;
     }
 
+    .tableRow {
+        @apply gap-1;
+    }
+
+    .tableCell {
+        @apply w-10 h-10 text-lg;
+    }
+
+    #keyboard {
+        @apply mt-2;
+    }
+
+    .letterRow {
+        @apply gap-0.5;
+    }
+
+    .letter {
+        @apply w-6 h-8 text-xs;
+    }
+
+    .letter:first-child,
+    .letter:last-child {
+        @apply px-1;
+    }
+
+    .new-game-btn {
+        @apply mt-4 px-4 py-2 text-sm;
+    }
+
+    .stats-modal {
+        max-width: 90%;
+    }
+
+    .stats-modal-header h2 {
+        font-size: 20px;
+    }
+
+    .stat-label {
+        font-size: 14px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
 }
