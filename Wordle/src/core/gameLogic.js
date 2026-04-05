@@ -2,7 +2,7 @@
  * @fileoverview Логика проверки угадания в игре Wordle
  */
 
-import {getRandomWord} from "../utils/helpers";
+import {getRandomWord} from "../utils/helpers.js";
 
 /**
  * Проверяет угадание и возвращает статусы для каждой буквы
