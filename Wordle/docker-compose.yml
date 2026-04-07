@@ -11,7 +11,9 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "8001:80"
+    depends_on:
+      - backend
     networks:
         - app-network
 

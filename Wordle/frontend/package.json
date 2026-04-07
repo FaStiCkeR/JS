@@ -6,6 +6,7 @@
     "tailwindcss": "^4.2.2"
   },
   "scripts": {
+    "build": "npm run build:css",
     "build:css": "postcss src/styles.css -o dist/styles.css",
     "watch:css": "postcss src/styles.css -o dist/styles.css --watch"
   },
@@ -19,7 +20,6 @@
     "graceful-fs": "^4.2.11",
     "jiti": "^2.6.1",
     "lightningcss": "^1.32.0",
-    "lightningcss-darwin-x64": "^1.32.0",
     "magic-string": "^0.30.21",
     "nanoid": "^3.3.11",
     "picocolors": "^1.1.1",
