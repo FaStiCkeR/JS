@@ -1,102 +1,91 @@
-# 🎮 Wordle Game
+# 🎮 Wordle - Русская версия
 
-> Русская версия популярной игры Wordle с модульной архитектурой
-
-## 📖 Документация
-
-Вся документация находится в папке `Documentation/`:
-
-### Быстрые ссылки
-
-| Документ                                         | Описание                   |
-|--------------------------------------------------|----------------------------|
-| [README.md](Documentation/README.md)             | 📚 Полный гайд по проекту  |
-| [ARCHITECTURE.md](Documentation/ARCHITECTURE.md) | 🏛️ Описание архитектуры   |
-| [API.md](Documentation/API.md)                   | 📋 API всех модулей        |
-| [MODULES.md](Documentation/MODULES.md)           | 📦 Описание каждого модуля |
-| [DEPENDENCIES.md](Documentation/DEPENDENCIES.md) | 🔗 Граф зависимостей       |
-
-## 🎯 Начало работы
-
-1. **Открой** [Documentation/README.md](Documentation/README.md) для полного описания
-2. **Изучи** [Documentation/ARCHITECTURE.md](Documentation/ARCHITECTURE.md) архитектуру
-3. **Смотри** [Documentation/API.md](Documentation/API.md) для функций
+Многофункциональная игра Wordle с поддержкой API на FastAPI.
 
 ## 📁 Структура проекта
 
 ```
 Wordle/
-├── index.html              # HTML страница
-├── Documentation/          # 📚 Вся документация
-│   ├── README.md
-│   ├── ARCHITECTURE.md
-│   ├── API.md
-│   ├── MODULES.md
-│   ├── DEPENDENCIES.md
-│   ├── FINAL_CHECKLIST.md
-│   └── INDEX.md
-└── src/                    # 💻 Исходный код
-    ├── main.js            # Точка входа
-    ├── styles.css         # Стили
-    ├── core/              # Логика игры
-    ├── ui/                # Интерфейс
-    ├── input/             # Обработка ввода
-    └── utils/             # Утилиты
+├── backend/              # 🐍 Python FastAPI сервер
+│   ├── main.py          # Основной файл API
+│   ├── russian_words.json # База слов
+│   ├── SETUP.md         # Инструкция по запуску API
+│   └── Documentation/   # Документация API
+├── frontend/            # 🌐 JavaScript приложение
+│   ├── index.html       # Главная страница
+│   ├── package.json     # Зависимости npm
+│   ├── src/             # Исходный код
+│   │   ├── main.js
+│   │   ├── config.js    # Конфигурация (URL API)
+│   │   ├── core/        # Логика игры
+│   │   ├── input/       # Обработка ввода
+│   │   ├── ui/          # UI компоненты
+│   │   └── utils/       # Утилиты
+│   └── dist/            # Собранные стили
+├── Documentation/       # 📖 Документация проекта
+└── README.md           # Этот файл
 ```
 
-## ⚡ Быстрый старт
+## 🚀 Быстрый старт
 
-### Запуск
+### Запуск Backend (API)
 
 ```bash
-# Вариант 1: Live Server (VS Code)
-# Нажми правой кнопкой на index.html → Open with Live Server
-
-# Вариант 2: Python
-python -m http.server 8000
-
-# Вариант 3: Node.js
-npm install -g http-server
-http-server
+cd backend
+python3 -m pip install fastapi uvicorn  # Первый раз только
+python3 -m uvicorn main:app --reload --port 8000
 ```
 
-Откройся браузер на `http://localhost:8000` (или указанный порт)
+API будет доступен на `http://localhost:8000`
 
-## 🎮 Как играть
+### Запуск Frontend
 
-1. Введи слово из 5 букв
-2. Смотри на подсказки:
-    - 🟩 Зелёный - правильное место
-    - 🟨 Жёлтый - буква есть, но на другом месте
-    - ⬜ Серый - буквы нет
-3. У тебя 6 попыток
+```bash
+cd frontend
+npm install              # Первый раз только
+npm run watch:css       # Для компиляции стилей (если нужно)
+# Откройте index.html в браузере
+```
 
-## 📊 Статистика проекта
+## 🎯 Особенности
 
-- **Модули:** 12 файлов
-- **Строк кода:** 941
-- **Документация:** 2000+ строк
-- **JSDoc покрытие:** 100%
-- **Циклические зависимости:** 0 ✅
+✅ **Полная поддержка русского языка** - 5-буквенные русские слова  
+✅ **API на FastAPI** - Независимый бэкенд для получения слов  
+✅ **Адаптивный дизайн** - Работает на всех устройствах  
+✅ **Темная тема** - Встроенная поддержка ночного режима  
+✅ **Сохранение статистики** - Ведение истории игр в localStorage  
+✅ **Полная клавиатура** - Поддержка как цифровой, так и виртуальной клавиатуры
 
-## 🏗️ Архитектура
+## ⚙️ Конфигурация
 
-4-слойная система:
+### Frontend (`frontend/src/config.js`)
 
-- **Utils** - базовые утилиты
-- **Core** - бизнес-логика
-- **UI** - отрисовка
-- **Input** - обработка ввода
+Основной URL API можно переопределить переменной окружения:
 
-## 🚀 Расширение
+```javascript
+export const API_BASE_URL = process.env.API_URL || 'http://localhost:8000';
+```
 
-Добавить новую фичу просто! Смотри [Documentation/README.md](Documentation/README.md) раздел "Как добавить фичу"
+### Backend (`backend/main.py`)
+
+API работает на порту `8000` с поддержкой CORS для всех источников.
+
+## 📚 Документация
+
+- [API Documentation](./backend/SETUP.md) - Инструкция по запуску API
+- [Project Documentation](./Documentation/README.md) - Полная документация проекта
+
+## 🔧 Требования
+
+- **Node.js** 14+ (для frontend)
+- **Python** 3.8+ (для backend)
+- **npm** 6+ (для управления зависимостями frontend)
 
 ## 📝 Лицензия
 
-Проект создан в образовательных целях.
+ISC
 
 ---
 
-**[Начни с документации →](Documentation/README.md)**
+**Приятной игры!** 🎉
 

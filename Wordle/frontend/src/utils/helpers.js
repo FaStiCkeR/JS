@@ -3,6 +3,7 @@
  */
 
 import {ENG_TO_RUS} from './constants.js';
+import {API_RANDOM_WORD_ENDPOINT} from '../config.js';
 
 /**
  * Преобразует английскую букву в русскую
@@ -38,7 +39,7 @@ export function showMessage(messageEl, text, isError = false, timeout = 2000) {
 export async function getRandomWord(words) {
     try {
         // Пытаемся получить слово с API
-        const response = await fetch('http://localhost:8000/random-word', {
+        const response = await fetch(API_RANDOM_WORD_ENDPOINT, {
             method: 'GET',
             signal: AbortSignal.timeout(5000) // Таймаут 5 секунд
         });

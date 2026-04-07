@@ -1,17 +1,23 @@
 import json
+import os
 import random
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from pathlib import Path
+
+# Получаем путь к текущей директории backend
+BASE_DIR = Path(__file__).parent
 
 # Загружаем слова
 try:
-    with open('russian_words.json', 'r', encoding='UTF-8') as f:
+    words_file = BASE_DIR / 'russian_words.json'
+    with open(words_file, 'r', encoding='UTF-8') as f:
         all_words = json.load(f)
     print(f"Загружено слов из JSON: {len(all_words)}")
     if all_words:
         print(f"Первые 5 слов: {all_words[:5]}")
 except FileNotFoundError:
-    print("Ошибка: файл russian_words.json не найден!")
+    print(f"Ошибка: файл {words_file} не найден!")
     all_words = []
 except json.JSONDecodeError as e:
     print(f"Ошибка парсинга JSON: {e}")
@@ -35,6 +41,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.get("/random-word")
 async def get_random_word():
