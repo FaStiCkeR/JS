@@ -6,6 +6,7 @@
 - **Docker Compose** 2.0+
 
 ### Проверка установки:
+
 ```bash
 docker --version
 docker-compose --version
@@ -31,21 +32,25 @@ Wordle/
 ## 🚀 Быстрый старт
 
 ### 1. Клонирование/переход в директорию
+
 ```bash
 cd /Users/nb/Desktop/JS_LABS/Wordle
 ```
 
 ### 2. Сборка образов
+
 ```bash
 docker-compose build
 ```
 
 ### 3. Запуск контейнеров
+
 ```bash
 docker-compose up -d
 ```
 
 ### 4. Проверка работы
+
 ```bash
 # API
 curl http://localhost:8000/random-word
@@ -108,16 +113,17 @@ docker-compose logs frontend
 
 После успешного запуска:
 
-| Сервис | URL | Описание |
-|--------|-----|----------|
-| **Frontend** | http://localhost/ | Основное приложение |
-| **API** | http://localhost:8000/ | REST API |
-| **API Docs** | http://localhost:8000/docs | Swagger UI |
-| **API ReDoc** | http://localhost:8000/redoc | ReDoc |
+| Сервис        | URL                         | Описание            |
+|---------------|-----------------------------|---------------------|
+| **Frontend**  | http://localhost:8001/      | Основное приложение |
+| **API**       | http://localhost:8000/      | REST API            |
+| **API Docs**  | http://localhost:8000/docs  | Swagger UI          |
+| **API ReDoc** | http://localhost:8000/redoc | ReDoc               |
 
 ## 🛠️ Управление контейнерами
 
 ### Остановка
+
 ```bash
 # Остановить все
 docker-compose down
@@ -127,6 +133,7 @@ docker-compose stop
 ```
 
 ### Перезапуск
+
 ```bash
 # Перезапустить все
 docker-compose restart
@@ -136,6 +143,7 @@ docker-compose restart backend
 ```
 
 ### Очистка
+
 ```bash
 # Удалить контейнеры и образы
 docker-compose down --rmi all
@@ -161,6 +169,7 @@ echo "API_URL=http://your-production-api.com" > .env
 ### Изменение портов
 
 В `docker-compose.yml`:
+
 ```yaml
 services:
   backend:
@@ -174,6 +183,7 @@ services:
 ## 🐛 Устранение неполадок
 
 ### Проблема: "Port already in use"
+
 ```bash
 # Найти процесс
 lsof -i :8000
@@ -184,6 +194,7 @@ kill -9 <PID>
 ```
 
 ### Проблема: "Build failed"
+
 ```bash
 # Очистить кэш
 docker system prune -a
@@ -193,6 +204,7 @@ docker-compose build --no-cache
 ```
 
 ### Проблема: "Container exits immediately"
+
 ```bash
 # Проверить логи
 docker-compose logs
@@ -202,6 +214,7 @@ docker-compose run --rm backend bash
 ```
 
 ### Проблема: "Network issues"
+
 ```bash
 # Пересоздать сеть
 docker-compose down
@@ -212,6 +225,7 @@ docker-compose up -d
 ## 📊 Мониторинг
 
 ### Просмотр ресурсов
+
 ```bash
 # Использование CPU/памяти
 docker stats
@@ -221,6 +235,7 @@ docker inspect wordle-backend-1
 ```
 
 ### Логи в реальном времени
+
 ```bash
 # Все логи
 docker-compose logs -f
@@ -232,6 +247,7 @@ docker-compose logs -f | grep ERROR
 ## 🔄 Обновление
 
 ### Обновление кода
+
 ```bash
 # Остановить
 docker-compose down
@@ -244,6 +260,7 @@ docker-compose up -d --build
 ```
 
 ### Обновление зависимостей
+
 ```bash
 # Backend
 cd backend && pip install -r requirements.txt
@@ -258,6 +275,7 @@ docker-compose up -d --build
 ## 🚀 Production развертывание
 
 ### На сервере
+
 ```bash
 # Клонировать проект
 git clone <repository>
@@ -271,6 +289,7 @@ docker-compose -f docker-compose.yml up -d
 ```
 
 ### С Nginx reverse proxy
+
 ```nginx
 server {
     listen 80;
@@ -329,6 +348,7 @@ docker-compose down -v --rmi all
 Приложение Wordle успешно развернуто в Docker!
 
 **URLs:**
+
 - Frontend: http://localhost/
 - API: http://localhost:8000/
 - Docs: http://localhost:8000/docs
