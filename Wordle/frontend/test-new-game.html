@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест новой игры</title>
+    <link href="dist/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="w-full max-w-lg mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Тест новой игры</h1>
+
+    <div id="board" class="mb-4"></div>
+    <div id="keyboard" class="mb-4"></div>
+    <div id="message" class="game-message mb-4"></div>
+
+    <button id="test-new-game" class="new-game-btn px-4 py-2 bg-blue-500 text-white rounded">
+        Тест: Новая игра
+    </button>
+</div>
+
+<script type="module">
+    import {initElements, startNewGame} from './src/input/uiEvents.js';
+    import {renderBoard} from './src/ui/board.js';
+    import {renderKeyboard} from './src/ui/keyboard.js';
+    import {initTheme} from './src/ui/theme.js';
+    import {initStats} from './src/core/stats.js';
+    import {initPhysicalKeyboard} from './src/input/keyboardHandler.js';
+    import {handleLetterInput, handleDelete, handleSubmit, isGameOver} from './src/input/uiEvents.js';
+
+    // Инициализация
+    const boardEl = document.getElementById('board');
+    const keyboardEl = document.getElementById('keyboard');
+    const messageEl = document.getElementById('message');
+
+    initStats();
+    initTheme();
+    initElements(boardEl, keyboardEl, messageEl);
+
+    renderBoard(boardEl, () => {
+    });
+    renderKeyboard(keyboardEl, handleLetterInput, handleSubmit, handleDelete);
+    initPhysicalKeyboard(handleLetterInput, handleDelete, handleSubmit, isGameOver);
+
+    // Тест новой игры
+    document.getElementById('test-new-game').addEventListener('click', async () => {
+        console.log('Запуск новой игры...');
+        await startNewGame();
+        console.log('Новая игра запущена!');
+    });
+
+    console.log('Тест готов. Нажмите кнопку "Тест: Новая игра"');
+</script>
+</body>
+</html>

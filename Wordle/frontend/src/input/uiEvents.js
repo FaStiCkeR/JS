@@ -15,10 +15,10 @@ import {
 } from '../core/gameState.js';
 import {checkGuess, isWinGuess} from '../core/gameLogic.js';
 import {updateStats} from '../core/stats.js';
-import {clearRow, getEmptyCellsInRow, updateCell} from '../ui/board.js';
-import {updateKeyStatus} from '../ui/keyboard.js';
+import {clearRow, getEmptyCellsInRow, renderBoard, updateCell} from '../ui/board.js';
+import {renderKeyboard, updateKeyStatus} from '../ui/keyboard.js';
 import {openStatsModal, showNewGameButton} from '../ui/modal.js';
-import {showMessage} from '../utils/helpers.js';
+import {getRandomWord, showMessage} from '../utils/helpers.js';
 import {GAME_CONFIG, WORDS} from '../utils/constants.js';
 
 let boardEl = null;
@@ -170,9 +170,20 @@ export function bindHeaderEvents(onThemeToggle) {
  */
 export async function startNewGame() {
     resetGameState();
-    const newWord = await fetchRandomWord(WORDS);
+    const newWord = await getRandomWord(WORDS);
     setTargetWord(newWord);
     console.log('Загадано:', newWord);
+
+    // Перерисовываем доску с помощью существующей функции
+    if (boardEl) {
+        renderBoard(boardEl, handleCellClick);
+    }
+
+    // Перерисовываем клавиатуру с помощью существующей функции
+    if (keyboardEl) {
+        renderKeyboard(keyboardEl, handleLetterInput, handleSubmit, handleDelete);
+    }
+
     showMessage(messageEl, '', false);
 }
 
@@ -183,4 +194,3 @@ export async function startNewGame() {
 export function isGameOver() {
     return gameState.gameOver;
 }
-
