@@ -31,17 +31,32 @@ export function showMessage(messageEl, text, isError = false, timeout = 2000) {
 }
 
 /**
- * Получает случайное слово из массива
- * @param {Array<string>} words - Массив слов
- * @returns {string} Случайное слово в верхнем регистре
+ * Получает случайное слово из API или из массива (fallback)
+ * @param {Array<string>} words - Массив слов (резервный)
+ * @returns {Promise<string>} Случайное слово в верхнем регистре
  */
-export function getRandomWord(words) {
-    // Фильтруем слова нужной длины (если нужно только 5-буквенные)
-    const validWords = words.filter(word => word.length === 5);
-    if (validWords.length === 0) {
-        throw new Error('Нет слов длины 5 в массиве');
+export async function getRandomWord(words) {
+    try {
+        // Пытаемся получить слово с API
+        const response = await fetch('http://localhost:8000/random-word', {
+            method: 'GET',
+            signal: AbortSignal.timeout(5000) // Таймаут 5 секунд
+        });
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('Получено слово с API:', data.word);
+        return data.word.toUpperCase();
+    } catch (error) {
+        // Fallback на встроенный массив если API не доступен
+        console.warn('API недоступен, используем встроенный словарь:', error);
+        const validWords = words.filter(word => word.length === 5);
+        if (validWords.length === 0) {
+            throw new Error('Нет слов длины 5 в массиве');
+        }
+        const idx = Math.floor(Math.random() * validWords.length);
+        return validWords[idx].toUpperCase();
     }
-    const idx = Math.floor(Math.random() * validWords.length);
-    return validWords[idx].toUpperCase();
 }
 

@@ -2,8 +2,6 @@
  * @fileoverview Логика проверки угадания в игре Wordle
  */
 
-import {getRandomWord} from "../utils/helpers.js";
-
 /**
  * Проверяет угадание и возвращает статусы для каждой буквы
  * @param {string} guess - Угаданное слово
@@ -44,15 +42,3 @@ export function checkGuess(guess, target) {
 export function isWinGuess(guess, target) {
     return guess === target;
 }
-
-/**
- * Получает случайное слово асинхронно
- * @param {Array<string>} words - Массив слов для выбора
- * @returns {Promise<string>} Промис с выбранным словом
- */
-export async function fetchRandomWord(words) {
-    return new Promise((resolve) => {
-        getRandomWord(words);
-    });
-}
-

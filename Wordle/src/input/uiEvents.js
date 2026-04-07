@@ -13,7 +13,7 @@ import {
     setGameOver,
     setTargetWord
 } from '../core/gameState.js';
-import {checkGuess, fetchRandomWord, isWinGuess} from '../core/gameLogic.js';
+import {checkGuess, isWinGuess} from '../core/gameLogic.js';
 import {updateStats} from '../core/stats.js';
 import {clearRow, getEmptyCellsInRow, updateCell} from '../ui/board.js';
 import {updateKeyStatus} from '../ui/keyboard.js';

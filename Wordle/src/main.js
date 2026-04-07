@@ -17,8 +17,8 @@ import {
     isGameOver
 } from './input/uiEvents.js';
 import {WORDS} from './utils/constants.js';
-import {fetchRandomWord} from './core/gameLogic.js';
 import {setTargetWord} from './core/gameState.js';
+import {getRandomWord} from "./utils/helpers.js";
 
 /**
  * Главная функция инициализации приложения
@@ -45,9 +45,8 @@ async function initGame() {
     bindHeaderEvents(toggleTheme);
     initPhysicalKeyboard(handleLetterInput, handleDelete, handleSubmit, isGameOver);
 
-    const initialWord = await fetchRandomWord(WORDS);
+    const initialWord = await getRandomWord(WORDS);
     setTargetWord(initialWord);
-    console.log('Загадано:', initialWord);
 }
 
 initGame().catch(err => console.error('Ошибка инициализации игры:', err));
