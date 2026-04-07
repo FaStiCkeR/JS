@@ -72,7 +72,6 @@ API работает на порту `8000` с поддержкой CORS для 
 
 ## 📚 Документация
 
-- [API Documentation](./backend/SETUP.md) - Инструкция по запуску API
 - [Project Documentation](./Documentation/README.md) - Полная документация проекта
 
 ## 🔧 Требования
