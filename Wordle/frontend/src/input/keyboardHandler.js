@@ -22,6 +22,11 @@ export function initPhysicalKeyboard(onLetterInput, onDelete, onSubmit, isGameOv
 
         let key = e.key;
 
+        // Игнорируем одиночные нажатия модификаторов
+        if (['Shift', 'Control', 'Alt', 'Meta'].includes(key)) {
+            return;
+        }
+
         if (/^[a-zA-Zа-яё]$/i.test(key)) {
             e.preventDefault();
             let letter = key.toUpperCase();
@@ -36,9 +41,12 @@ export function initPhysicalKeyboard(onLetterInput, onDelete, onSubmit, isGameOv
             e.preventDefault();
             onSubmit();
         } else {
-            e.preventDefault();
-            let letter = mapSymbolsToRus(key)
-            onLetterInput(letter);
+            let letter = mapSymbolsToRus(key);
+            // Обрабатываем только если функция вернула результат
+            if (letter) {
+                e.preventDefault();
+                onLetterInput(letter);
+            }
         }
     };
 
