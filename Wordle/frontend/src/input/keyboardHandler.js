@@ -2,7 +2,7 @@
  * @fileoverview Обработка ввода с физической клавиатуры
  */
 
-import {mapEngToRus} from '../utils/helpers.js';
+import {mapEngToRus, mapSymbolsToRus} from '../utils/helpers.js';
 
 /**
  * Инициализирует обработчик физической клавиатуры с маппингом на русский
@@ -31,6 +31,10 @@ export function initPhysicalKeyboard(onLetterInput, onDelete, onSubmit, isGameOv
         } else if (key === 'Enter') {
             e.preventDefault();
             onSubmit();
+        } else {
+            e.preventDefault();
+            let letter = mapSymbolsToRus(key)
+            onLetterInput(letter);
         }
     };
 

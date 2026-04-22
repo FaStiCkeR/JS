@@ -11,8 +11,16 @@ import {API_RANDOM_WORD_ENDPOINT} from '../config.js';
  * @returns {string} Русская буква или исходный символ
  */
 export function mapEngToRus(engLetter) {
-    if (/\p{L}/u.test(engLetter)) return ENG_TO_RUS[engLetter.toUpperCase()] || engLetter;
-    else return ENG_TO_RUS[SYMBOLS_TO_RUS];
+    return ENG_TO_RUS[engLetter.toUpperCase()] || engLetter;
+}
+
+/**
+ * Преобразует символ в русскую букву
+ * @param engLetter
+ * @return {string}
+ */
+export function mapSymbolsToRus(engLetter) {
+    return SYMBOLS_TO_RUS[engLetter];
 }
 
 /**
