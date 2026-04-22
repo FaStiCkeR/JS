@@ -2,7 +2,7 @@
  * @fileoverview Вспомогательные функции утилиты
  */
 
-import {ENG_TO_RUS} from './constants.js';
+import {ENG_TO_RUS, SYMBOLS_TO_RUS} from './constants.js';
 import {API_RANDOM_WORD_ENDPOINT} from '../config.js';
 
 /**
@@ -11,7 +11,8 @@ import {API_RANDOM_WORD_ENDPOINT} from '../config.js';
  * @returns {string} Русская буква или исходный символ
  */
 export function mapEngToRus(engLetter) {
-    return ENG_TO_RUS[engLetter.toUpperCase()] || engLetter;
+    if (/\p{L}/u.test(engLetter)) return ENG_TO_RUS[engLetter.toUpperCase()] || engLetter;
+    else return ENG_TO_RUS[SYMBOLS_TO_RUS];
 }
 
 /**
