@@ -3,7 +3,7 @@
  */
 
 import {ENG_TO_RUS} from './constants.js';
-import {API_RANDOM_WORD_ENDPOINT, API_URL} from '../config.js';
+import {API_RANDOM_WORD_ENDPOINT} from '../config.js';
 
 /**
  * Преобразует английскую букву в русскую
