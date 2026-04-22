@@ -14,6 +14,10 @@ import {mapEngToRus, mapSymbolsToRus} from '../utils/helpers.js';
  */
 export function initPhysicalKeyboard(onLetterInput, onDelete, onSubmit, isGameOver) {
     const onKeyDown = (e) => {
+        // Освобождение блока от обработчиков событий при нажатии с Ctrl, Alt, Shift или Meta.
+        if (e.ctrlKey || e.metaKey || (e.altKey && !e.shiftKey) || (e.shiftKey && (e.ctrlKey || e.metaKey))) {
+            return;
+        }
         if (isGameOver()) return;
 
         let key = e.key;
