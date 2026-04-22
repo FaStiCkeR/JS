@@ -41,4 +41,3 @@ export function initPhysicalKeyboard(onLetterInput, onDelete, onSubmit, isGameOv
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
 }
-
